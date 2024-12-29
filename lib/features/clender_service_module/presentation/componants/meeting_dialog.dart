@@ -13,7 +13,7 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
     text: meeting?.eventName ?? "",
   );
   DateTime? startDateTime = meeting?.from;
-  DateTime? endDateTime;
+  DateTime? endDateTime = meeting?.to;
 /*
 * final TextEditingController titleController =
     TextEditingController(text: meeting?.eventName ?? "");
@@ -51,7 +51,7 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
                   child:Text(
                     startDateTime == null
                         ? "اختر تاريخ ووقت البدء"
-                        : "البدء: ${ConstantPickDateWidget.formatDateTime(meeting?.from ?? DateTime.now())}",
+                        : " ${ConstantPickDateWidget.formatDateTime(startDateTime  ?? DateTime.now())}",
                     style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ),
@@ -73,7 +73,7 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
                   child: Text(
                     endDateTime == null
                         ? "اختر تاريخ ووقت الانتهاء"
-                        : "الانتهاء: ${ConstantPickDateWidget.formatDateTime(meeting?.to ?? DateTime.now())}",
+                        :ConstantPickDateWidget.formatDateTime(endDateTime?? DateTime.now()),
                     style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
                 ),
@@ -92,7 +92,7 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
 ////add new metting
                   context.read<CalendarBloc>().add(AddMeetingEvent(
                         title: titleController.text,
-                        startTime: startDateTime!,
+                        startTime: startDateTime ?? DateTime.now(),
                         endTime: endDateTime!,
                       ));
                   Navigator.of(context).pop();
@@ -135,7 +135,7 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Text(
+                  child: const CustomText(text:
                     "إلغاء",
                     style: TextStyle(fontSize: 15, color: Colors.red),
                   ),
