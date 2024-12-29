@@ -1,5 +1,6 @@
 import 'package:calendar/core/utils/color_constant.dart';
 import 'package:calendar/core/widget/Customtext.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -7,8 +8,12 @@ import '../../../../core/utils/image_constant.dart';
 
 
 class TopBar extends StatelessWidget {
+  final Function()?onTap;
+  final String? text;
+
   const TopBar({
-    super.key,
+    this.text,
+    super.key,this.onTap,
   });
 
   @override
@@ -32,23 +37,21 @@ class TopBar extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.bottomCenter,
-              child: GestureDetector(
-                onTap: (){
-                  Navigator.pop(context);
-                },
+              child: text!=null? GestureDetector(
+                onTap: onTap,
                 child: Container(
                     decoration: BoxDecoration(
                         color: Colors.black12,
                         borderRadius: BorderRadius.circular(10)),
-                    child: const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: CustomText(text:
-                        "الغاء",
-                        style: TextStyle(
+                    child:  Padding(
+                      padding:const EdgeInsets.all(10.0),
+                      child: CustomText(
+                        text:text ??"",
+                        style:const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),
                       ),
                     )),
-              ),
+              ):null,
             ),
 
             Image.asset(

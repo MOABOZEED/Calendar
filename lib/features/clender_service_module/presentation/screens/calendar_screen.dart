@@ -28,7 +28,12 @@ class CalendarShow extends StatelessWidget {
           resizeToAvoidBottomInset: false,
           body: Column(
             children: [
-              const TopBar(),
+              TopBar(
+                text: "Cancel".tr(),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -40,14 +45,16 @@ class CalendarShow extends StatelessWidget {
                       children: [
                         if (state.joptittle != null)
                           Expanded(
-                              child: CustomText(
-                                  text: "jopTittle:${state.joptittle}")),
+                            child: CustomText(
+                                text: "jopTittle:${state.joptittle}"),
+                          ),
                         if (state.userName != null)
                           Expanded(
-                              child: CustomText(
-                                  text: " ${state.userName}:UserName")),
+                            child:
+                                CustomText(text: " ${state.userName}:UserName"),
+                          ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -70,16 +77,16 @@ class CalendarShow extends StatelessWidget {
                     log("${details.date}");
                     if (details.appointments!.isNotEmpty) {
                       // final meeting =  ;
-                      _showModalSheet(context, details.appointments!.first);
+                      _showModalSheet(context, details.appointments?.first);
                     }
                   },
                 ),
               ),
               AddMeetingButton(
-                text: "إضافة اجتماع",
+                text: "addMeeting".tr(),
                 onTap: () {
                   print(state.titleControllerEdite?.text);
-                  showAddMeetingDialog(context, text: "إضافة اجتماع جديد");
+                  showAddMeetingDialog(context, text: "addNewMeeting".tr());
                 },
               ),
             ],
@@ -103,12 +110,12 @@ class CalendarShow extends StatelessWidget {
                   Icons.edit,
                   color: ColorConstant.blueColor,
                 ),
-                text: "تعديل".tr(),
+                text: "edite".tr(),
                 onTap: () {
                   Navigator.pop(context);
                   // BlocProvider.of<CalendarBloc>(context).add(EditEvent());
                   showAddMeetingDialog(context,
-                      text: "تعديل".tr(), meeting: meeting);
+                      text: "edite".tr(), meeting: meeting);
                 },
               ),
               ListTileComponent(
@@ -116,7 +123,7 @@ class CalendarShow extends StatelessWidget {
                   Icons.delete,
                   color: Colors.red,
                 ),
-                text: "حذف",
+                text: "Delete".tr(),
                 onTap: () {
                   Navigator.pop(context);
                   dialogAlertRemove(context, meeting);

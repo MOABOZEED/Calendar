@@ -15,7 +15,12 @@ void main() async {
   // await init();
   init();
 
-  runApp(const MyApp());
+  runApp(EasyLocalization(
+    supportedLocales: [Locale("en",),Locale("ar")],
+      path:"assets/translations",
+       fallbackLocale: Locale("en"),
+      startLocale: const Locale("en"),
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -27,8 +32,15 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) => BlocProvider(
         create: (context) => CalendarBloc(sl()),
         child: MaterialApp(
+           localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+
+
+          locale: context.locale,
+
+
           theme: ThemeData(fontFamily: "SST"),
-          home: HomePage(),
+          home:const HomePage(),
         ),
       ),
     );

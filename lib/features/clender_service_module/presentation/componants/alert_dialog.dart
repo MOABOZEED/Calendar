@@ -1,4 +1,5 @@
 import 'package:calendar/features/clender_service_module/presentation/componants/metting.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,9 +12,9 @@ dialogAlertRemove(context,Meeting meeting){
     context: context,
     builder: (context) =>
         AlertDialog(
-          title: const CustomText(
-              text: "هل انت متاكد من حذف  البيانات ؟"),
-          icon: const Icon(
+          title:  CustomText(
+              text: "AreYouSureToDeleteTheData?".tr()),
+          icon:const  Icon(
             Icons.warning,
             color: Colors.red,
             size: 50.0,
@@ -26,7 +27,7 @@ dialogAlertRemove(context,Meeting meeting){
                 BlocProvider.of<CalendarBloc>(context).add(
                     DeleteMeetingEvent(meeting));
               },
-              child: const CustomText(text: "نعم "),
+              child:  CustomText(text: "Yes".tr()),
             )
           ],
         ),

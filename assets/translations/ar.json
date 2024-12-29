@@ -1,0 +1,21 @@
+{
+  "userName": "اسم المستخدم",
+  "jopTitle": "الوظيفه",
+  "age": "العمر",
+  "type": "النوع",
+  "confirmation": "تاكيد",
+  "addMeeting": "إضافة اجتماع",
+  "addNewMeeting": "إضافة اجتماع جديد",
+  "edite": "تعديل",
+  "Delete": "حذف",
+  "Cancel": "الغاء",
+  "meetingTitle": "عنوان الاجتماع",
+  "SelectStartDateAndTime": "اختر تاريخ ووقت البدء",
+  "SelectEndDateAndTime": "اختر تاريخ ووقت الانتهاء",
+  "PleaseEnterTheCorrectData": "من فضلك ادخل البيانات الصحيحة",
+  "Save": "حفظ",
+  "AreYouSureToDeleteTheData?": "هل انت متاكد من حذف  البيانات؟",
+  "Yes": "نعم",
+  "Female": "أنثى",
+  "Male": "ذكر"
+}

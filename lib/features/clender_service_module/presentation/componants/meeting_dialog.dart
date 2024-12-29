@@ -1,4 +1,5 @@
 import 'package:calendar/features/clender_service_module/presentation/componants/show_add_meeting_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,7 +33,7 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
             TextFormField(
               controller: titleController,
               decoration: InputDecoration(
-                hintText: meeting?.eventName ?? "عنوان الاجتماع",
+                hintText: meeting?.eventName ?? " meetingTitle".tr(),
               ),
             ),
             const SizedBox(height: 15),
@@ -50,7 +51,7 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
                   padding: const EdgeInsets.all(8.0),
                   child:Text(
                     startDateTime == null
-                        ? "اختر تاريخ ووقت البدء"
+                        ? "SelectStartDateAndTime".tr()
                         : " ${ConstantPickDateWidget.formatDateTime(startDateTime  ?? DateTime.now())}",
                     style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
@@ -72,7 +73,7 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     endDateTime == null
-                        ? "اختر تاريخ ووقت الانتهاء"
+                        ? "SelectEndDateAndTime".tr()
                         :ConstantPickDateWidget.formatDateTime(endDateTime?? DateTime.now()),
                     style: const TextStyle(fontSize: 15, color: Colors.white),
                   ),
@@ -109,9 +110,9 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
               } else {
                 Navigator.of(context).pop();
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
+                   SnackBar(
                     content: CustomText(
-                      text: "من فضلك ادخل البيانات الصحيحة",
+                      text: "PleaseEnterTheCorrectData".tr(),
                     ),
                     backgroundColor: Colors.red,
                   ),
@@ -127,16 +128,16 @@ showAddMeetingDialog(BuildContext context,  {String? text,Meeting? meeting}) {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: ColorConstant.blueColor),
-                    child: const Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: Text("حفظ"),
+                    child:  Padding(
+                      padding:const EdgeInsets.all(15.0),
+                      child: Text("Save".tr()),
                     )), //// ====> save
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                  child: const CustomText(text:
-                    "إلغاء",
+                  child:  CustomText(text:
+                    "Cancel".tr(),
                     style: TextStyle(fontSize: 15, color: Colors.red),
                   ),
                 ),

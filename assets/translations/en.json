@@ -1,0 +1,21 @@
+{
+  "userName": "User Name",
+  "jopTitle": "Jop Title",
+  "age": "Age",
+  "type": "Type",
+  "confirmation": "Confirmation",
+  "addMeeting": "Add Meeting",
+  "addNewMeeting": "Add New Meeting",
+  "edite": "Edite",
+  "Delete": "Delete",
+  "Cancel": "Cancel",
+  "meetingTitle": "Meeting Title",
+  "SelectStartDateAndTime": "Select Start Date And Time",
+  "SelectEndDateAndTime": "Select End Date And Time",
+  "PleaseEnterTheCorrectData": "Please Enter The Correct Data",
+  "Save": "Save",
+  "AreYouSureToDeleteTheData?": "Are You Sure To Delete The Data",
+  "Yes": "Yes",
+  "Female": "Female",
+  "Male": "Male"
+}

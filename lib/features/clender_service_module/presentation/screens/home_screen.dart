@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:calendar/core/utils/color_constant.dart';
 import 'package:calendar/core/widget/Customtext.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -21,8 +22,8 @@ class HomePage extends StatelessWidget {
   const HomePage({
     super.key,
   });
-  // bool _validate = false;
 
+  // bool _validate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: BlocBuilder<CalendarBloc, CalenderState>(
                   builder: (context, state) => Form(
-                      // key: ,
+                    // key: ,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       spacing: 12,
@@ -49,10 +50,10 @@ class HomePage extends StatelessWidget {
                           controller: state.userNameController,
                           suffixIcon: const Icon(Icons.person),
                           keyboardType: TextInputType.name,
-                          hintText: "اسم المستخدم",
+                          hintText: "userName".tr(),
                           textInputAction: TextInputAction.next,
                         ),
-                         CustomTextField(
+                        CustomTextField(
                           controller: state.jopTittleController,
                           onChanged: (v) {
                             // state.userNameController?.text = v;
@@ -62,7 +63,7 @@ class HomePage extends StatelessWidget {
                           },
                           suffixIcon: const Icon(Icons.work),
                           keyboardType: TextInputType.name,
-                          hintText: "الوظيفه",
+                          hintText: "jopTitle".tr(),
                           textInputAction: TextInputAction.next,
                         ),
                         CustomTextField(
@@ -74,18 +75,18 @@ class HomePage extends StatelessWidget {
                           // maxLength: 2,
                           suffixIcon: const Icon(Icons.person_3_outlined),
                           keyboardType: TextInputType.number,
-                          hintText: "العمر",
+                          hintText: "age".tr(),
                           textInputAction: TextInputAction.done,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            addRadioButton(0, state.gender?[0]),
-                            addRadioButton(1, state.gender?[1]),
+                            addRadioButton(0, "Male".tr()),
+                            addRadioButton(1, "Female".tr()),
                             //state.gender?[index]
-                            const CustomText(text:
-                              "النوع",
-                              style: TextStyle(fontSize: 20),
+                            CustomText(
+                              text: "type".tr(),
+                              style: const TextStyle(fontSize: 20),
                             ),
                           ],
                         ),
@@ -103,9 +104,7 @@ class HomePage extends StatelessWidget {
             FloatingActionButtonLocation.miniCenterFloat,
         floatingActionButton: GestureDetector(
           onTap: () {
-
             // if(context.read<CalendarBloc>().state.userNameController?.text.isEmpty ?? true){}
-
 
             // _validate = context.read<CalendarBloc>().state.userNameController?.text.isEmpty ?? false;
 
@@ -125,11 +124,11 @@ class HomePage extends StatelessWidget {
             decoration: BoxDecoration(
                 color: ColorConstant.blueColor,
                 borderRadius: BorderRadius.circular(10)),
-            child: const Padding(
-              padding: EdgeInsets.all(8.0),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
               child: CustomText(
-                style: TextStyle(fontSize: 25),
-                text: "تاكيد",
+                style: const TextStyle(fontSize: 25),
+                text: "confirmation".tr(),
 
                 // style: TextStyle(fontSize: 25),
               ),
