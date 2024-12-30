@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:calendar/core/utils/color_constant.dart';
 import 'package:calendar/core/widget/Customtext.dart';
+import 'package:calendar/core/widget/enum.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +24,8 @@ class CalendarShow extends StatelessWidget {
     return BlocBuilder<CalendarBloc, CalenderState>(
       builder: (context, state) {
         print("mo#${state.weatherEntity}");
+
+
 
         return Scaffold(
           resizeToAvoidBottomInset: false,
@@ -60,6 +63,7 @@ class CalendarShow extends StatelessWidget {
               ),
               Expanded(
                 child: SfCalendar(
+                  minDate: DateTime.now(),
                   // cellEndPadding: 10,
                   showWeekNumber: true,
                   showNavigationArrow: true,
